@@ -1,0 +1,95 @@
+test_pl_pesel.doctest - more detailed doctests for the stdnum.pl.pesel module
+
+Copyright (C) 2024 Jakub Polak
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+02110-1301 USA
+
+
+This file contains more detailed doctests for the stdnum.pl.pesel module. It
+tries to validate a number of numbers that have been found online.
+
+>>> from stdnum.pl import pesel
+>>> from stdnum.exceptions import *
+
+
+These have been found online and should all be valid numbers.
+
+>>> numbers = '''
+...
+... 02251631037
+... 03301836765
+... 05260173749
+... 07221031457
+... 07271842353
+... 08292732771
+... 09301186114
+... 10240105537
+... 10302051439
+... 11260431044
+... 15260257545
+... 16220556258
+... 16290406758
+... 18291031467
+... 19280823858
+... 21261143008
+... 21262217627
+... 24272478288
+... 25060355505
+... 31042258782
+... 31052575534
+... 34061220833
+... 35100181632
+... 37031145088
+... 38070301026
+... 38071156328
+... 38080377833
+... 38111022448
+... 43040975574
+... 46091526843
+... 47011431447
+... 47061171054
+... 48051920234
+... 50051424168
+... 55022542160
+... 56071921256
+... 58070181260
+... 62080662756
+... 66031903226
+... 67041183376
+... 68032218037
+... 73060938208
+... 73072103238
+... 74090635723
+... 77011373052
+... 79042062305
+... 79092261808
+... 82100843468
+... 83022077704
+... 83041061135
+... 83101931701
+... 90062656664
+... 90092373676
+... 91081022478
+... 92102532545
+... 95092000508
+... 96082486045
+... 96090868707
+... 99031866822
+... 99041328330
+...
+... '''
+>>> [x for x in numbers.splitlines() if x and not pesel.is_valid(x)]
+[]

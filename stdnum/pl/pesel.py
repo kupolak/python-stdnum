@@ -3,6 +3,7 @@
 #
 # Copyright (C) 2015 Dariusz Choruzy
 # Copyright (C) 2015 Arthur de Jong
+# Copyright (C) 2024 Jakub Polak
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -93,7 +94,7 @@ def calc_check_digit(number):
     should not have the check digit included."""
     weights = (1, 3, 7, 9, 1, 3, 7, 9, 1, 3)
     check = sum(w * int(n) for w, n in zip(weights, number))
-    return str((10 - check) % 10)
+    return str((10 - check % 10) % 10)
 
 
 def validate(number):
